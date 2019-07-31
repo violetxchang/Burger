@@ -1,0 +1,36 @@
+<h1>Burger Chomp!</h1>
+
+<h2>Burgers To Be Chomped</h2>
+
+<ul>
+{{#each burger}}
+{{#unless this.devoured}}
+{{>burger/burger-block devoured=true}}
+{{/unless}}
+{{/each}}
+
+<h2>Chomped Burgers</h2>
+
+<ul>
+    {{#each burger}}
+    {{#if devoured}}
+{{>burger/burger-block devoured=false}}
+{{/if}}
+{{/each}}
+</ul>
+
+<h2>Add a Burger to Chomp</h2>
+
+<div class="form-group">
+    <label for="burger">Burger Name</label>
+    <input type="text" id="burger" name="name">
+</div>
+
+<div class="form-group">
+    <label for="devoured">Chomp Time?</label><br>
+    <input type="radio" name="devoured" value="1" checked>Chomp!<br>
+    <input type="radio" name="devoured" value="0">No Chomp.
+</div>
+
+<button type="submit">Add Burger</button>
+</form>
