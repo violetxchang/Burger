@@ -4,8 +4,8 @@
 
 <ul>
 {{#each burger}}
-{{#unless this.devoured}}
-{{>burger/burger-block devoured=true}}
+{{#unless this.chomped}}
+{{>burger/burger-block chomped=true}}
 {{/unless}}
 {{/each}}
 
@@ -13,8 +13,8 @@
 
 <ul>
     {{#each burger}}
-    {{#if devoured}}
-{{>burger/burger-block devoured=false}}
+    {{#if chomped}}
+{{>burger/burger-block chomped=false}}
 {{/if}}
 {{/each}}
 </ul>
@@ -27,9 +27,9 @@
 </div>
 
 <div class="form-group">
-    <label for="devoured">Chomp Time?</label><br>
-    <input type="radio" name="devoured" value="1" checked>Chomp!<br>
-    <input type="radio" name="devoured" value="0">No Chomp.
+    <label for="chomped">Chomp Time?</label><br>
+    <input type="radio" name="chomped" value="1" checked>Chomp!<br>
+    <input type="radio" name="chomped" value="0">No Chomp.
 </div>
 
 <button type="submit">Add Burger</button>
