@@ -7,7 +7,7 @@ var burger=require("../models/burger.js");
 
 //create all our routes and set up logic within those routes where reqired
 router.get("/", function(req,res){
-    burger.all(function(data){
+    burger.selectAll(function(data){
         var hbsObject={
             burgers: data
         };
@@ -17,11 +17,10 @@ router.get("/", function(req,res){
 });
 
 router.post("/api/burgers", function(req,res){
-    burger.create([
-        "name", "chomped"
-    ], [
-        req.body.name, req.body.chomped
-    ], function(result){
+    burger.insertOne(
+        ["burger_name"], 
+        [req.body.burger_name], 
+        function(result){
         //send back the id of the new quote
         res.json({ id: result.insertId});
     });
@@ -32,13 +31,13 @@ router.put("/api/burgers/:id", function(req,res){
 
     console.log("condition", condition);
 
-    burger.update({
+    burger.updateOne({
         chomped: req.body.chomped
     }, condition, function(result){
-        if(result.changedRows==0){
+        if((result.changedRows==0)){
             //if no rows were changed, then the id must not exist, so 404
             return res.status(404).end();
-        } else{
+        } else {
             res.status(200).end();
         }
     });
@@ -47,8 +46,8 @@ router.put("/api/burgers/:id", function(req,res){
 router.delete("/api/cats/:id", function(req,res){
     var condition="id = " + req.params.id;
 
-    burger.delete(condition, function(result){
-        if(result.affectedRows==0){
+    burger.deleteOne(condition, function(result){
+        if((result.changedRows==0)){
             //if no rows were changed, then the id must not exist, so 404
             return res.status(404).end();
         } else {
