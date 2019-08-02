@@ -3,28 +3,34 @@
 <h2>Burgers To Be Chomped</h2>
 
 <ul>
-{{#each burger}}
-{{#unless this.chomped}}
-{{>burger/burger-block chomped=true}}
-{{/unless}}
-{{/each}}
+    {{#each burger}}
+    {{#unless this.chomped}}
+    <li>
+        {{burger_name}} <button class="btn-chomp">Chomp it!</button>
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
 
 <h2>Chomped Burgers</h2>
 
 <ul>
     {{#each burger}}
     {{#if chomped}}
-{{>burger/burger-block chomped=false}}
-{{/if}}
-{{/each}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/if}}
+    {{/each}}
 </ul>
 
 <h2>Add a Burger to Chomp</h2>
 
-<div class="form-group">
-    <label for="burger">Burger Name</label>
-    <input type="text" id="burger" name="name">
-</div>
+<form id="create-form" class="form-inline">
+        <label for="newburger">Burger Name</label>
+            <input type="text" id="newburger" name="name" placeholder="Add your burger here">
+</form>
+
 
 <div class="form-group">
     <label for="chomped">Chomp Time?</label><br>
