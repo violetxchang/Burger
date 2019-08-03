@@ -3,10 +3,10 @@
 <h2>Burgers To Be Chomped</h2>
 
 <ul>
-    {{#each burger}}
-    {{#unless this.chomped}}
+    {{#each burgers}}
+    {{#unless chomped}}
     <li>
-        {{burger_name}} <button class="btn-chomp">Chomp it!</button>
+        {{burger_name}} <button class="btn-chomp" data-id={{id}}>Chomp it!</button>
     </li>
     {{/unless}}
     {{/each}}
@@ -15,7 +15,7 @@
 <h2>Chomped Burgers</h2>
 
 <ul>
-    {{#each burger}}
+    {{#each burgers}}
     {{#if chomped}}
     <li>
         {{burger_name}}
@@ -29,7 +29,7 @@
 <form id="create-form" class="form-inline">
         <label for="newburger">Burger Name</label>
             <input type="text" id="newburger" name="name" placeholder="Add your burger here">
-</form>
+
 
 
 <div class="form-group">
@@ -38,5 +38,5 @@
     <input type="radio" name="chomped" value="0">No Chomp.
 </div>
 
-<button type="submit">Add Burger</button>
+<button id="addburger" type="submit">Add Burger</button>
 </form>
