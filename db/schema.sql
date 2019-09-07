@@ -7,4 +7,4 @@ CREATE TABLE burgers(
     burger_name varchar(150) not null,
 	chomped BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
-);
+)
