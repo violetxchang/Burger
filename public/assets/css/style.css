@@ -1,0 +1,60 @@
+html{
+    height:100%;
+}
+
+body {
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1em;
+    line-height: 1.07em;
+    letter-spacing: -.015em;
+    color:black;
+    height:100%;
+}
+
+div {
+    /* border: 1px solid black; */
+    margin: 0px;
+    align-content: left;
+    margin-top: .5em;
+}
+
+h1, h2 {
+    font-size: 1em;
+    text-align: left;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 1em;
+}
+
+h3{
+    font-size: 1em;
+}
+
+.navbar{
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    align-content: left;
+}
+
+input{
+    width:110px;
+    border: 1px solid black;
+}
+
+button{
+    background-color: black;
+    color: white;
+    margin: .10em;
+    border: 0;
+}
+
+.row{
+    width:100%;
+    align-content: left;
+}
